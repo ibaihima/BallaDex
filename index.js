@@ -9,9 +9,24 @@ function fetchTeam() {
     .then(function(teamArr) {
         teamArr.data.forEach(team => {
             addJersey(team)
+            listEastTeams(team)
+            westSide(team)
         })
     })
 )}
+
+function listEastTeams(team) {
+    if (team.conference === "East") {
+        console.log(team.full_name)
+    }
+}
+
+const westSide = (team) => {
+    if (team.conference === 'West')
+        console.log(team.full_name)
+}
+
+
 
 function addJersey(team) {
     if (team.id === 1) {
@@ -104,7 +119,7 @@ function addJersey(team) {
     else if (team.id === 30) {
         team.image = 'https://1000logos.net/wp-content/uploads/2018/05/Washington_Wizards_Logo.png'
     }
-    console.log(team)
+    //console.log(team)
 }
 
 
