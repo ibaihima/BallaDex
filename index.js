@@ -40,7 +40,7 @@ function listWestTeams(team) {
         let westSide = document.querySelector('#western-teams')
         let mainArea = document.querySelector('#imageholder')
         let westTeam = document.querySelector("#Value1")
-        let teamRatingGame = (Math.random() * 5) * team.score
+        let teamRatingGame = (Math.random() * 3) * team.score
         
         let listOfWest = document.createElement('h2')
         listOfWest.textContent = team.full_name
@@ -56,19 +56,24 @@ function listWestTeams(team) {
 }
 
 function playGame() {
-    let goGame = document.querySelector('#simGame')
-    let westValue = document.querySelector('#Value1').value
-    let eastValue = document.querySelector('#Value2').value
+    let goGame = document.querySelector('#simButton')
+    let westValue = document.querySelector('#Value1')
+    let eastValue = document.querySelector('#Value2')
     goGame.addEventListener('click', () => {
-        if (eastValue > westValue) {
-            console.log('The East Wins')
-        } else {
-            console.log('The West Wins')
-    }
+        let newWestValue = parseInt(westValue)
+        let newEastValue = parseInt(eastValue)
+        if (newEastValue > newWestValue) {
+            console.log('East Wins!')
+        } else if (newWestValue > newEastValue) {
+            console.log('West Wins!')
+        }
     })
 }
+
     
 playGame()
+
+
 
 //standings are as of Feb 16 - 2022
 function addJersey(team) {
