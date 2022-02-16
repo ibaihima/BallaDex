@@ -1,1 +1,15 @@
-#westernteams
+#western-teams {
+    float: left;
+    text-align: left;
+}
+#eastern-teams {
+    float: right;
+}
+
+#heading {
+    text-align: center;
+}
+
+#centerimage {
+    position: relative;
+}
