@@ -11,6 +11,7 @@ function fetchTeam() {
             addJersey(team)
             listEastTeams(team)
             listWestTeams(team)
+            playGame(team)
         })
     })
 )}
@@ -55,23 +56,24 @@ function listWestTeams(team) {
     }
 }
 
-function playGame() {
+function playGame(team) {
     let goGame = document.querySelector('#simButton')
     let westValue = document.querySelector('#Value1')
     let eastValue = document.querySelector('#Value2')
     goGame.addEventListener('click', () => {
-        let newWestValue = parseInt(westValue)
-        let newEastValue = parseInt(eastValue)
-        if (newEastValue > newWestValue) {
-            console.log('East Wins!')
-        } else if (newWestValue > newEastValue) {
-            console.log('West Wins!')
+        westValue.textContent =  (Math.random() * 3) * team.score
+        eastValue.textContent =  (Math.random() * 3) * team.score
+        if (westValue > eastValue) {
+            console.log('The west wins!')
+        } else if (eastValue > westValue) {
+            console.log('The east wins!')
+
         }
+
+
+      
     })
 }
-
-    
-playGame()
 
 
 
@@ -126,7 +128,7 @@ function addJersey(team) {
         team.score = .322
     }
     else if (team.id === 13) {
-        team.image = "https://i.pinimg.com/564x/9e/1c/4a/9e1c4a56869d0f0c2d4f3f017bf4df79.jpg"
+        team.image = "https://logos-download.com/wp-content/uploads/2016/04/LA_Clippers_logo_logotype_emblem.png"
         team.score = .483
     }
     else if (team.id === 14) {

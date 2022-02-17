@@ -10,12 +10,22 @@
     text-align: center;
 }
 
+#headingImage {
+    width: 500px;
+    height: auto;
+}
+
+#western-teams {
+    
+}
+
+
 #centerimage {
     text-align: center;
     display: flex;
     width: 300px;
     height: 300px;
-    padding-left: 500px;
+    padding-left: 25%;
 }
 
 
@@ -29,6 +39,8 @@
     text-align: center;  
     padding: 15px;  
     border: 3px solid blue;  
+    margin-top: -600px;
+    color: white;
 }
 #eastern-teams {
     width: 300px;  
@@ -36,6 +48,8 @@
     text-align: center;  
     padding: 15px;  
     border: 3px solid red;  
+    margin-top: -600px;
+    color: white;
 }
 #imageholder1 {
     padding: 100px;
@@ -63,4 +77,8 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+#buttons {
+    padding-left: 725px
 }
