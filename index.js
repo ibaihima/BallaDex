@@ -16,12 +16,15 @@ function fetchTeam() {
     })
 )}
 
+let teamRatingGame;
+let teamRatingGame1;
+
 function listEastTeams(team) {
     if (team.conference === "East") {
         let eastSide = document.querySelector('#eastern-teams')
         let mainArea = document.querySelector('#imageholder2')
         let eastTeam = document.querySelector("#Value2")
-        let teamRatingGame = (Math.random() * 3) * team.score
+        teamRatingGame = (Math.random() * 3) * teamRating
         
         let listOfEast = document.createElement('h2')
         listOfEast.textContent = team.full_name
@@ -41,7 +44,7 @@ function listWestTeams(team) {
         let westSide = document.querySelector('#western-teams')
         let mainArea = document.querySelector('#imageholder')
         let westTeam = document.querySelector("#Value1")
-        let teamRatingGame = (Math.random() * 3) * team.score
+        teamRatingGame1 = (Math.random() * 3) * teamRating
         
         let listOfWest = document.createElement('h2')
         listOfWest.textContent = team.full_name
@@ -51,32 +54,26 @@ function listWestTeams(team) {
             westTeam.textContent = teamRatingGame
             console.log(teamRatingGame)
         })
-3
         westSide.appendChild(listOfWest)
     }
 }
 
 //need to create a global variable that accesses team.score
-let teamRating = 
+let teamRating;
 
 function playGame(team) {
     let goGame = document.querySelector('#simButton')
-    let westValue = document.querySelector('#Value1')
-    let eastValue = document.querySelector('#Value2')
     let winner = document.querySelector("#theWinner")
     
     goGame.addEventListener('click', () => {
-        let westScore = (Math.random() * 3) * team.score
-        let eastScore = (Math.random() * 3) * team.score
-        westValue.textContent =  westScore
-        eastValue.textContent = eastScore
-        if (westScore > eastScore) {
-            console.log('The west wins!')
+       
+        if (teamRatingGame > teamRatingGame1) {
+            winner.textContent = `The West Wins!`
         } else { 
-            console.log('The east wins!')
+            winner.textContent = `The East Wins!`
         }
-        winner.textContent = `The ${team.full_name} Win!`
     })
+    
 }
 
 function leaveAComment() {
@@ -93,7 +90,7 @@ function leaveAComment() {
 //standings are as of Feb 16 - 2022
 function addJersey(team) {
     if (team.id === 1) {
-        team.image = 'https://content.sportslogos.net/logos/6/220/full/5mdhgjh3aa92kih09pgi.png'
+        team.image = 'https://upload.wikimedia.org/wikipedia/en/2/24/Atlanta_Hawks_logo.svg'
         team.score = .474
     }
     else if (team.id === 2) {
@@ -109,11 +106,11 @@ function addJersey(team) {
         team.score = .492
     }
     else if (team.id === 5) {
-        team.image = "https://cdn11.bigcommerce.com/s-uqijfs/images/stencil/1280x1280/products/115756/132647/3208508091__32246.1573686166.jpg?c=2"
+        team.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cleveland_Cavaliers_secondary_logo.svg/1186px-Cleveland_Cavaliers_secondary_logo.svg.png"
         team.score = .638
     } 
     else if (team.id === 6) {
-        team.image = "https://www.cleveland.com/resizer/IdQUPZZSGUGyhe-f3SvrDoqb7FM=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.cleveland.com/home/cleve-media/width2048/img/startingblocks/photo/new-cavaliers-primary-logojpg-ecde4d110d8b58e4.jpg"
+        team.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cleveland_Cavaliers_secondary_logo.svg/1186px-Cleveland_Cavaliers_secondary_logo.svg.png"
         team.score = .603
     }
     else if (team.id === 7) {
@@ -213,6 +210,7 @@ function addJersey(team) {
         team.score = .464
     }
     //console.log(team)
+    teamRating = team.score
 }
 
 

@@ -34,7 +34,7 @@
     height: auto;  
     text-align: center;  
     padding: 15px;  
-    border: 3px solid blue;  
+    /* border: 3px solid rgb(255, 0, 0);   */
     margin-top: -600px;
     color: rgb(255, 255, 255);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
@@ -44,7 +44,7 @@
     height: auto;  
     text-align: center;  
     /* padding: 15px;   */
-    border: 3px solid red;  
+    /* border: 3px solid rgb(4, 0, 255);   */
     margin-top: -600px;
     color: white;
 }
@@ -54,7 +54,7 @@
 #simButton {
     border: none;
     display: flex;
-    color: grey;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -62,11 +62,12 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    background-color: green;
 }
 #deleteButton {
     border: none;
     display: flex;
-    color: grey;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -74,6 +75,7 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    background-color: red;
 }
 #buttons {
     text-align: center;
@@ -83,4 +85,7 @@ body {
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#displayhere{
+    background-color: rgb(126, 124, 121);
 }
