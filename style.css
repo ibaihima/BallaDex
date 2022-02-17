@@ -5,33 +5,29 @@
 #eastern-teams {
     float: right;
 }
-
 #heading {
     text-align: center;
 }
-
 #headingImage {
     width: 500px;
     height: auto;
 }
-
 #western-teams {
-    
 }
-
-
 #centerimage {
     text-align: center;
     display: flex;
     width: 300px;
     height: 300px;
-    padding-left: 25%;
+    margin-left: 50%;
+    transform: translate(-150%);
 }
-
-
 #background {
+    outline: 2px solid black;
     background-image: url('https://wallpapercave.com/wp/wp2825243.jpg');
+    background-position: center center;
     background-repeat: no-repeat;
+    background-size: 80%;  
 }
 #western-teams {
     width: 300px;  
@@ -40,13 +36,14 @@
     padding: 15px;  
     border: 3px solid blue;  
     margin-top: -600px;
-    color: white;
+    color: rgb(255, 255, 255);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
 }
 #eastern-teams {
     width: 300px;  
     height: auto;  
     text-align: center;  
-    padding: 15px;  
+    /* padding: 15px;   */
     border: 3px solid red;  
     margin-top: -600px;
     color: white;
@@ -78,7 +75,12 @@
     margin: 4px 2px;
     cursor: pointer;
 }
-
 #buttons {
-    padding-left: 725px
+    text-align: center;
+}
+body {
+    background-image: url('https://wallpapercave.com/wp/wp2825243.jpg');
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

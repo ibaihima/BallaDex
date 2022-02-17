@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     fetchTeam()
     leaveAComment()
+    playGame()
 });
 
 function fetchTeam() {
@@ -11,7 +12,6 @@ function fetchTeam() {
             addJersey(team)
             listEastTeams(team)
             listWestTeams(team)
-            playGame(team)
         })
     })
 )}
@@ -51,11 +51,13 @@ function listWestTeams(team) {
             westTeam.textContent = teamRatingGame
             console.log(teamRatingGame)
         })
-
-        -
+3
         westSide.appendChild(listOfWest)
     }
 }
+
+//need to create a global variable that accesses team.score
+let teamRating = 
 
 function playGame(team) {
     let goGame = document.querySelector('#simButton')
@@ -64,13 +66,15 @@ function playGame(team) {
     let winner = document.querySelector("#theWinner")
     
     goGame.addEventListener('click', () => {
-        westValue.textContent =  (Math.random() * 3) * team.score
-        eastValue.textContent =  (Math.random() * 3) * team.score
-        // if (westValue > eastValue) {
-        //     console.log('The west wins!')
-        // } else { 
-        //     console.log('The east wins!')
-        // }
+        let westScore = (Math.random() * 3) * team.score
+        let eastScore = (Math.random() * 3) * team.score
+        westValue.textContent =  westScore
+        eastValue.textContent = eastScore
+        if (westScore > eastScore) {
+            console.log('The west wins!')
+        } else { 
+            console.log('The east wins!')
+        }
         winner.textContent = `The ${team.full_name} Win!`
     })
 }
