@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     fetchTeam()
-
+    leaveAComment()
 });
 
 function fetchTeam() {
@@ -52,6 +52,7 @@ function listWestTeams(team) {
             console.log(teamRatingGame)
         })
 
+        -
         westSide.appendChild(listOfWest)
     }
 }
@@ -60,22 +61,30 @@ function playGame(team) {
     let goGame = document.querySelector('#simButton')
     let westValue = document.querySelector('#Value1')
     let eastValue = document.querySelector('#Value2')
+    let winner = document.querySelector("#theWinner")
+    
     goGame.addEventListener('click', () => {
         westValue.textContent =  (Math.random() * 3) * team.score
         eastValue.textContent =  (Math.random() * 3) * team.score
-        if (westValue > eastValue) {
-            console.log('The west wins!')
-        } else if (eastValue > westValue) {
-            console.log('The east wins!')
-
-        }
-
-
-      
+        // if (westValue > eastValue) {
+        //     console.log('The west wins!')
+        // } else { 
+        //     console.log('The east wins!')
+        // }
+        winner.textContent = `The ${team.full_name} Win!`
     })
 }
 
+function leaveAComment() {
+    let submit = document.querySelector('#commentBox')
+    let commentBox = document.querySelector('#displayhere')
+    let textArea = document.querySelector('#texthere')
 
+    submit.addEventListener('submit', (e) => {
+        e.preventDefault()
+        commentBox.textContent = textArea.value
+    })
+}
 
 //standings are as of Feb 16 - 2022
 function addJersey(team) {

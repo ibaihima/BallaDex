@@ -24,21 +24,26 @@
             </div>
             <div id="buttons">
                 <button id="simButton" type="button">Sim this game!</button>
-                <button id="deleteButton" type="button">Reset the board!</button>
+                <button id="deleteButton" onClick="window.location.reload();"type="button">Reset the board!</button>
             </div>
             <div>
                 <h3 id="teamName"></h3>
             </div>
-            <div id ="western-teams">
-
-            </div>
-            <div id="eastern-teams">
-
-            </div>
-            </body>
+            <div id ="western-teams"></div>
+            <div id="eastern-teams"></div>
             <div id="Value1"></div>
             <div id="Value2"></div>
-            <div id="theWinner">
+            <div>
+                <h2 id="theWinner"></h2>
+            </div>e
+            <div id="Comments-Section">
+            <form id="commentBox"> 
+                <input id="texthere" type="text" placeholder="Leave a note here!">
+                <button type="submit">Submit</button>
+                <textarea id="displayhere" rows="5" cols="40">
+
+                </textarea>
+                </form>
             </div>
         </body>
     </html>
