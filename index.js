@@ -16,6 +16,11 @@ function fetchTeam() {
     })
 )}
 
+let scoreArray = []
+let westTeamId;
+let eastTeamId;
+let nameArray = []
+
 function listEastTeams(team) {
     if (team.conference === "East") {
         let eastSide = document.querySelector('#eastern-teams')
@@ -38,11 +43,6 @@ function listEastTeams(team) {
     }
 }
 
-let scoreArray = []
-let westTeamId;
-let eastTeamId;
-let nameArray = []
-
 function listWestTeams(team) {
     if (team.conference === 'West') {
         let westSide = document.querySelector('#western-teams')
@@ -60,7 +60,6 @@ function listWestTeams(team) {
             westTeamId = team.id
             console.log(teamRatingGame)
         })
-3
         westSide.appendChild(listOfWest)
     }
 }
@@ -85,7 +84,7 @@ function playGame(team) {
             winner.textContent = `The ${winningTeamName} Win!`
             console.log('The east wins!')
         } else {
-            winner.textContent = "Please select two teams!"   
+            winner.textContent = "Please select two teams."   
         }
         
     })
@@ -99,6 +98,7 @@ function leaveAComment() {
     submit.addEventListener('submit', (e) => {
         e.preventDefault()
         commentBox.textContent = textArea.value
+        submit.reset()
     })
 }
 
