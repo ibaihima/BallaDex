@@ -78,12 +78,16 @@ function playGame(team) {
         let winningTeamName = "";
         if (westScore > eastScore) {
             winningTeamName = nameArray[westTeamId]
+            winner.textContent = `The ${winningTeamName} Win!`
             console.log('The west wins!')
-        } else { 
+        } else if (eastScore > westScore) {
             winningTeamName = nameArray[eastTeamId]
+            winner.textContent = `The ${winningTeamName} Win!`
             console.log('The east wins!')
+        } else {
+            winner.textContent = "Please select two teams!"   
         }
-        winner.textContent = `The ${winningTeamName} Win!`
+        
     })
 }
 
