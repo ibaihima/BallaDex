@@ -16,22 +16,21 @@ function fetchTeam() {
     })
 )}
 
-let teamRatingGame;
-let teamRatingGame1;
-
 function listEastTeams(team) {
     if (team.conference === "East") {
         let eastSide = document.querySelector('#eastern-teams')
         let mainArea = document.querySelector('#imageholder2')
         let eastTeam = document.querySelector("#Value2")
-        teamRatingGame = (Math.random() * 3) * teamRating
+        let teamRatingGame = (Math.random() * 3) * team.score
+        scoreArray[team.id] = teamRatingGame
         
         let listOfEast = document.createElement('h2')
         listOfEast.textContent = team.full_name
+        nameArray[team.id] = team.full_name
         listOfEast.addEventListener('click', (e) => {
             e.preventDefault()
             mainArea.src = team.image
-            eastTeam.textContent = teamRatingGame
+            eastTeamId = team.id
             console.log(teamRatingGame)
         })
         
@@ -39,41 +38,53 @@ function listEastTeams(team) {
     }
 }
 
+let scoreArray = []
+let westTeamId;
+let eastTeamId;
+let nameArray = []
+
 function listWestTeams(team) {
     if (team.conference === 'West') {
         let westSide = document.querySelector('#western-teams')
         let mainArea = document.querySelector('#imageholder')
         let westTeam = document.querySelector("#Value1")
-        teamRatingGame1 = (Math.random() * 3) * teamRating
+        let teamRatingGame = (Math.random() * 3) * team.score
+        scoreArray[team.id] = teamRatingGame
         
         let listOfWest = document.createElement('h2')
         listOfWest.textContent = team.full_name
+        nameArray[team.id] = team.full_name
         listOfWest.addEventListener('click', (e) => {
             e.preventDefault()
             mainArea.src = team.image
-            westTeam.textContent = teamRatingGame
+            westTeamId = team.id
             console.log(teamRatingGame)
         })
+3
         westSide.appendChild(listOfWest)
     }
 }
 
-//need to create a global variable that accesses team.score
-let teamRating;
-
 function playGame(team) {
     let goGame = document.querySelector('#simButton')
+    let westValue = document.querySelector('#Value1')
+    let eastValue = document.querySelector('#Value2')
     let winner = document.querySelector("#theWinner")
     
     goGame.addEventListener('click', () => {
-       
-        if (teamRatingGame > teamRatingGame1) {
-            winner.textContent = `The West Wins!`
+
+        let westScore = scoreArray[westTeamId]
+        let eastScore = scoreArray[eastTeamId]
+        let winningTeamName = "";
+        if (westScore > eastScore) {
+            winningTeamName = nameArray[westTeamId]
+            console.log('The west wins!')
         } else { 
-            winner.textContent = `The East Wins!`
+            winningTeamName = nameArray[eastTeamId]
+            console.log('The east wins!')
         }
+        winner.textContent = `The ${winningTeamName} Win!`
     })
-    
 }
 
 function leaveAComment() {
@@ -106,7 +117,7 @@ function addJersey(team) {
         team.score = .492
     }
     else if (team.id === 5) {
-        team.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cleveland_Cavaliers_secondary_logo.svg/1186px-Cleveland_Cavaliers_secondary_logo.svg.png"
+        team.image = "https://cdn.freebiesupply.com/images/large/2x/chicago-bulls-logo-transparent.png"
         team.score = .638
     } 
     else if (team.id === 6) {
@@ -134,7 +145,7 @@ function addJersey(team) {
         team.score = .268
     }
     else if (team.id === 12) {
-        team.image = "https://logos-world.net/wp-content/uploads/2020/05/Indiana-Pacers-logo.png"
+        team.image = "https://www.onpointbasketball.com/wp-content/uploads/2021/04/1200px-Indiana_Pacers.svg_.png"
         team.score = .322
     }
     else if (team.id === 13) {
@@ -150,11 +161,11 @@ function addJersey(team) {
         team.score = .695
     }
     else if (team.id === 16) {
-        team.image = 'https://1000logos.net/wp-content/uploads/2021/04/Miami-Heat-logo.png'
+        team.image = 'https://cdn.freebiesupply.com/images/large/2x/miami-heat-logo-transparent.png'
         team.score = .638
     }
     else if (team.id === 17) {
-        team.image = 'https://1000logos.net/wp-content/uploads/2018/03/Milwaukee-Bucks-Logo.png'
+        team.image = 'https://cdn.freebiesupply.com/images/large/2x/milwaukee-bucks-logo-transparent.png'
         team.score = .610
     }
     else if (team.id === 18) {
@@ -166,7 +177,7 @@ function addJersey(team) {
         team.score = .397
     }
     else if (team.id === 20) {
-        team.image = 'https://1000logos.net/wp-content/uploads/2017/12/New-York-Knicks-Logo-1992.jpg'
+        team.image = 'https://cdn.freebiesupply.com/images/large/2x/new-york-knicks-logo-transparent.png'
         team.score = .431
     }
     else if (team.id === 21) {
@@ -174,7 +185,7 @@ function addJersey(team) {
         team.score = .316
     }
     else if (team.id === 22) {
-        team.image = 'https://logos-world.net/wp-content/uploads/2020/05/Orlando-Magic-logo.png'
+        team.image = 'https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Orlando_Magic_logo.svg/2560px-Orlando_Magic_logo.svg.png'
         team.score = .220
     }
     else if (team.id === 23) {
@@ -198,7 +209,7 @@ function addJersey(team) {
         team.score = .379
     }
     else if (team.id === 28) {
-        team.image = 'https://1000logos.net/wp-content/uploads/2018/05/Toronto-Raptors-logo.jpg'
+        team.image = 'http://assets.stickpng.com/images/58419bf3a6515b1e0ad75a59.png'
         team.score = .554
     }
     else if (team.id === 29) {
@@ -206,11 +217,10 @@ function addJersey(team) {
         team.score = .632
     }
     else if (team.id === 30) {
-        team.image = 'https://1000logos.net/wp-content/uploads/2018/05/Washington_Wizards_Logo.png'
+        team.image = 'https://cdn.freebiesupply.com/images/large/2x/washington-wizards-logo-transparent.png'
         team.score = .464
     }
     //console.log(team)
-    teamRating = team.score
 }
 
 
